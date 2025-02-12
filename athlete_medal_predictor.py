@@ -10,7 +10,7 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import pickle
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
@@ -77,9 +77,9 @@ if uploaded_file:
         st.write(f"Model Accuracy: {accuracy:.2f}")
 
         # Save model
-        joblib.dump(model, "athlete_medal_model.pkl")
-        joblib.dump(encoders, "label_encoders.pkl")
-        joblib.dump(scaler, "scaler.pkl")
+        pickle.dump(model, "athlete_medal_model.pkl")
+        pickle.dump(encoders, "label_encoders.pkl")
+        pickle.dump(scaler, "scaler.pkl")
 
         st.success("Model Trained and Saved Successfully!")
 
